@@ -6,6 +6,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,9 +50,28 @@ public class MyServlet extends HttpServlet {
            response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
             try {
-
+                String buttonPress = request.getParameter("signupSubmit");
+                //if this isn't null then button with signupSubmit name was pressed
+                if (buttonPress != null){
+                    String firstName = request.getParameter("firstName");
+                    String lastName = request.getParameter("lastName");
+                    int age = parseInt(request.getParameter("age"));
+                    if (age <18){
+                        out.println("<p>Thank you for your interst. Sadly"
+                                + " you must be at least 18 years old to enroll."
+                                + " You stated that you were only "+age+" years old");
+                    }
+                    else{
+                    out.println("<h2> Thank you for enrolling "+firstName +" "+ lastName +".");
+                    out.println("<p>You've just taken a very important step in your career."
+                            + "  By the time you finish with us you'll be certified to"
+                            + " work at some job somewhere.  Isn't that Great!</p>");
+                    }
+                }
+                else{
                 String user=request.getParameter("user");
                 out.println("<h2> Welcome "+user+"</h2>");
+                }
             } finally {            
                 out.close();
             }
