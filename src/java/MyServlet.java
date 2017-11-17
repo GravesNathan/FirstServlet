@@ -56,10 +56,12 @@ public class MyServlet extends HttpServlet {
                     String firstName = request.getParameter("firstName");
                     String lastName = request.getParameter("lastName");
                     int age = parseInt(request.getParameter("age"));
+                    int yearsLeft = 18 - age;
                     if (age <18){
                         out.println("<p>Thank you for your interst. Sadly"
                                 + " you must be at least 18 years old to enroll."
-                                + " You stated that you were only "+age+" years old");
+                                + " You stated that you were only "+age+" years old."
+                                + " Plese wait "+yearsLeft+ " more years before enrolling.");
                     }
                     else{
                     out.println("<h2> Thank you for enrolling "+firstName +" "+ lastName +".");
