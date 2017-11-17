@@ -3,29 +3,6 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
-
-Interestingly with the example below I can see that the href calls for
-the processRequest of MyServlet while the post form calls for the doPost.
-Regardless of which map or page I refer to that much is consistent.
-I'm sure the same would be said of doGet etc.
-
-I wonder though, how would I specify that one doPost responds with A while
-another doPost responds with B?  I can only think of having multiple MyServlet
-classes maybe?  or is there a better way...?  Unless the web.xml mapping is the key...
-But the web.xml only seems to control what request is mapped to what servlet.
-It does not include code (to my knowledge of how to respond.
-
-At least for now.  I think a single servlet would work fine if the behavior of the response
-is the same across request, perhaps in the process request one where you just
-link to the other url.  However for forms and customized webpages that change based on the
-initial request...can a single servlet do that.  The whole request process only creates an instance
-of the servlet class which handles the request ( think).
-
-Lets experiment and see where this takes us...Maybe one servlet can be made to have
-unique doPost/doGet functions based on the input or soemthing like that.  Or else inside
-the doPost, etc, functions it can use if statements to check for what is being asked.
-Maybe then a hashmap or similar (for larger applications) can control the type of
-response the client receives
 -->
 <html>
     <head>
